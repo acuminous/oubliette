@@ -1,6 +1,11 @@
-# napi
+# napi - A programmatic api for npm
 
-A programmatic api for npm
+[![NPM version](https://img.shields.io/npm/v/napi.svg?style=flat-square)](https://www.npmjs.com/package/napi)
+[![Node.js CI](https://github.com/acuminous/napi/workflows/Node.js%20CI/badge.svg)](https://github.com/acuminous/napi/actions?query=workflow%3A%22Node.js+CI%22)
+[![Code Climate](https://codeclimate.com/github/acuminous/napi/badges/gpa.svg)](https://codeclimate.com/github/acuminous/napi)
+[![Test Coverage](https://codeclimate.com/github/acuminous/napi/badges/coverage.svg)](https://codeclimate.com/github/acuminous/napi/coverage)
+[![Discover zUnit](https://img.shields.io/badge/Discover-zUnit-brightgreen)](https://www.npmjs.com/package/zunit)
+
 
 ## TL;DR
 
