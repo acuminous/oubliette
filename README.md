@@ -34,7 +34,7 @@ try {
 
 ## Supported Commands
 
-See the [command list](https://github.com/acuminous/lib/commands.json)
+See the [command list](https://github.com/acuminous/napi/blob/main/lib/commands.json)
 
 ## Options
 See the [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options
