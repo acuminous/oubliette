@@ -1,13 +1,13 @@
 {
   "name": "napi",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A programmatic api for npm",
   "main": "index.js",
   "keywords": [
     "npm",
     "programmatic",
     "api"
-  ],  
+  ],
   "scripts": {
     "coverage": "nyc --report html --reporter lcov --reporter text-summary zUnit",
     "lint": "eslint .",
@@ -32,5 +32,5 @@
   },
   "lint-staged": {
     "*.js": "eslint --fix"
-  }  
+  }
 }
