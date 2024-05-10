@@ -12,7 +12,7 @@
     "coverage": "nyc --report html --reporter lcov --reporter text-summary zUnit",
     "lint": "eslint .",
     "lint-staged": "lint-staged",
-    "test": "zunit",
+    "test": "zUnit",
     "prepare": "husky"
   },
   "author": "Stephen Cresswell",
