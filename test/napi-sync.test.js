@@ -28,8 +28,8 @@ describe('napi-sync', () => {
   });
 
   it('should report commands that fail', () => {
-    throws(() => napi().exec('test', 'a = b'), (err) => {
-      eq(err.message, 'Command failed: npm exec test a = b');
+    throws(() => napi({ stdio: 'pipe' }).exec('-c', 'exit', '1'), (err) => {
+      match(err.message, /Command failed: npm exec -c exit 1/);
       return true;
     });
   });

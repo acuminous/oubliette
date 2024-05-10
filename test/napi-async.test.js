@@ -28,8 +28,8 @@ describe('napi-async', () => {
   });
 
   it('should report commands that fail', async () => {
-    await rejects(() => napi().exec('test', 'a = b'), (err) => {
-      eq(err.message, 'Command failed: npm exec test a = b\n');
+    await rejects(() => napi().exec('-c', 'exit', '1'), (err) => {
+      match(err.message, /Command failed: npm exec -c exit 1/);
       return true;
     });
   });
