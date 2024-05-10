@@ -42,10 +42,7 @@ See the [command list](https://github.com/acuminous/napi/blob/main/lib/commands.
 ## Options
 
 ```js
-await napi({
-  timeout: 1000,
-  cwd: __dirname,  
-}).view('express', 'version', { json: true });
+await napi({ cwd: __dirname }).exec('-c', 'pwd');
 ```
 
 See the NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options
