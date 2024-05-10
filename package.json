@@ -1,0 +1,21 @@
+{
+  "name": "napi",
+  "version": "1.0.0",
+  "description": "A programatic api for npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stephen Cresswell",
+  "license": "ISC",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "npm",
+    "programmatic",
+    "api"
+  ]
+}
