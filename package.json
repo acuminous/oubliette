@@ -1,10 +1,19 @@
 {
   "name": "napi",
   "version": "1.0.0",
-  "description": "A programatic api for npm",
+  "description": "A programmatic api for npm",
   "main": "index.js",
+  "keywords": [
+    "npm",
+    "programmatic",
+    "api"
+  ],  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "nyc --report html --reporter lcov --reporter text-summary zUnit",
+    "lint": "eslint .",
+    "lint-staged": "lint-staged",
+    "test": "zunit",
+    "prepare": "husky"
   },
   "author": "Stephen Cresswell",
   "license": "ISC",
@@ -13,9 +22,15 @@
     "lib": "lib",
     "test": "test"
   },
-  "keywords": [
-    "npm",
-    "programmatic",
-    "api"
-  ]
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "nyc": "^15.1.0",
+    "zunit": "^4.0.2"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  }  
 }

@@ -11,9 +11,9 @@ const { napiAsync: napi } = require('napi');
 try {
   const output = await napi().view('express', 'version', { json: true });
   const version = JSON.parse(output);
-  console.log({ version })  
+  console.log({ version });
 } catch (err) {
-  console.error(err)
+  console.error(err);
 }
 ```
 
@@ -24,9 +24,9 @@ const { napiSync: napi } = require('napi');
 try {
   const output = napi().view('express', 'version', { json: true });
   const version = JSON.parse(output);
-  console.log({ version })
+  console.log({ version });
 } catch (err) {
-  console.error(err)
+  console.error(err);
 }
 ```
 
@@ -36,11 +36,11 @@ See the [command list](https://github.com/acuminous/napi/blob/main/lib/commands.
 
 ## Options
 
-```
+```js
 await napi({
   timeout: 1000,
   cwd: __dirname,  
 }).view('express', 'version', { json: true });
 ```
 
-See the [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options
+See the NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options
