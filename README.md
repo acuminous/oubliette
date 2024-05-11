@@ -47,7 +47,7 @@ npm().findDupes();
 ```
 
 ## Parsing Output
-Oubliette uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html) instead of as a String. Oubliette ensures string converstion by default.
+Oubliette uses NodeJS [child_process.execSync](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html) instead of as a String. Oubliette ensures string converstion by default.
 
 ```js
 const output = npm().view('express');
