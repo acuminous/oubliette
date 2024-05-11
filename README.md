@@ -37,7 +37,7 @@ npm().install('nodemon', { 'global': true, 'install-strategy': 'shallow' });
 ````
 
 ### Parsing Output
-napi uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These return stdout as a [Buffer](https://nodejs.org/api/buffer.html). napi converts this to a string by default;
+napi uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html). napi converts this to a string by default;
 
 ```js
 const output = npm().view('express');
@@ -46,14 +46,20 @@ const output = npm().view('express');
 This is inconvenient if you want JSON output for commands that support the `--json` long option, so instead you can specify a format function
 
 ```js
-const { jsonFormat: format } = require('napi'); 
+const { formats: { jsonFormat: format } } = require('napi'); 
 const json = npm({ format }).view('express', { json: true });
 ```
 
-You can also receive the unformatted output
+You can also receive the output as a buffer consistently
 ```js
-const { bufferFormat: format } = require('napi'); 
+const { formats: { bufferFormat: format } } = require('napi'); 
 const buffer = npm({ format }).view('express', { json: true });
+```
+
+Finally you can receive the raw output
+```js
+const { formats: { rawFormat: format } } = require('napi'); 
+const output = npm({ format }).view('express', { json: true });
 ```
 
 ## Child Process Options

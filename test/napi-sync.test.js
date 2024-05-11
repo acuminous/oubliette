@@ -1,7 +1,7 @@
 const { match, throws, strictEqual: eq } = require('node:assert');
 const { describe, it } = require('zunit');
 
-const { napiSync: napi } = require('..');
+const { napiSync: napi, formats } = require('..');
 
 describe('napi-sync', () => {
   it('should execute a command without arguments', () => {
@@ -26,6 +26,25 @@ describe('napi-sync', () => {
     const options = { cwd: __dirname };
     const output = napi({ options }).exec('-c', 'pwd');
     match(output, new RegExp('/napi/test$'));
+  });
+
+  it('should format output as json', async () => {
+    const format = formats.jsonFormat;
+    const report = napi({ format }).ls({ omit: 'dev', json: true, long: undefined });
+    eq(Object.keys(report).includes('dependencies'), false);
+    eq(report.description, 'A programmatic api for npm');
+  });
+
+  it('should format output as a buffer', async () => {
+    const format = formats.bufferFormat;
+    const buffer = napi({ format }).ls({ omit: 'dev', json: true, long: undefined });
+    eq(Buffer.isBuffer(buffer), true);
+  });
+
+  it('should leave output unformatted', async () => {
+    const format = formats.rawFormat;
+    const buffer = napi({ format }).ls();
+    eq(Buffer.isBuffer(buffer), true);
   });
 
   it('should report commands that fail', () => {
