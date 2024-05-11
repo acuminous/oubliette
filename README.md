@@ -21,17 +21,17 @@ const { napiSync: npm } = require('napi');
 npm().install('express');
 ````
 
-Execute any npm command with multiple arguments
+Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/napi/main/lib/commands.json) with multiple arguments
 ```js
 npm().install('express', 'pg', 'debug');
 ````
 
-Execute any npm command with short options
+Execute [supported npm command](https://raw.githubusercontent.com/acuminous/napi/main/lib/commands.json) with short options
 ```js
 npm().install('nodemon', { 'g': true });
 ````
 
-Execute any npm command with long options
+Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/napi/main/lib/commands.json) with long options
 ```js
 npm().install('nodemon', { 'global': true, 'install-strategy': 'shallow' });
 ````
