@@ -13,13 +13,11 @@ The programmatic API was removed from npm in v8.0.0. Since then the only option 
 Asynchronous API
 ```js
 const { asyncApi: npm } = require('oubliette');
-await npm().install('express');
 ````
 
 Synchronous API
 ```js
 const { syncApi: npm } = require('oubliette');
-npm().install('express');
 ````
 
 Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with multiple arguments
@@ -35,6 +33,13 @@ npm().install('nodemon', { 'g': true });
 Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with long options
 ```js
 npm().install('nodemon', { 'global': true, 'install-strategy': 'shallow' });
+````
+
+Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with hyphens
+```js
+npm()['find-dupes']();
+// or
+npm().findDupes();
 ````
 
 ## Parsing Output
@@ -85,5 +90,5 @@ The error will be decorated with `stdout` and `stderr` properties.
 
 ## Why "oubliette"?
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Dungeon), an oubliette is a basement room or bottle dungeon which is accessible only from a hole in a high ceiling. If you've ever looked at the [npm souce code](https://github.com/npm/cli/blob/latest/lib/commands) you may appreciate the similarity!
+According to [Wikipedia](https://en.wikipedia.org/wiki/Dungeon), an oubliette is a basement room or bottle dungeon which is accessible only from a hole in a high ceiling and difficult to escape from. If you've ever descended into the [npm souce code](https://github.com/npm/cli/blob/latest/lib/commands) you may appreciate the similarity!
 

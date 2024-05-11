@@ -8,6 +8,7 @@
     "programmatic",
     "api",
     "command",
+    "typescript",
     "install",
     "view",
     "link",
@@ -25,6 +26,7 @@
   "author": "Stephen Cresswell",
   "license": "ISC",
   "directories": {
+    "example": "examples",
     "lib": "lib",
     "test": "test"
   },
@@ -46,5 +48,6 @@
   "bugs": {
     "url": "https://github.com/acuminous/oubliette/issues"
   },
-  "homepage": "https://acuminous.github.io/oubliette"
+  "homepage": "https://acuminous.github.io/oubliette",
+  "types": "./index.d.ts"
 }

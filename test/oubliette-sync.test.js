@@ -22,6 +22,16 @@ describe('Sync API', () => {
     eq(report.description, 'A programmatic api for npm');
   });
 
+  it('should support commands with hyphens', () => {
+    const output = npm()['find-dupes']();
+    match(output, /up to date/);
+  });
+
+  it('should alias commands with hyphens', () => {
+    const output = npm().findDupes();
+    match(output, /up to date in/);
+  });
+
   it('should support child process options', () => {
     const options = { cwd: __dirname };
     const output = npm({ options }).exec('-c', 'pwd');

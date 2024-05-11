@@ -1,0 +1,10 @@
+{
+  "name": "oubliette-js-example",
+  "version": "1.0.0",
+  "scripts": {
+    "demo": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

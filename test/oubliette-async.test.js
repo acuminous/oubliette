@@ -22,6 +22,16 @@ describe('Async API', () => {
     eq(report.description, 'A programmatic api for npm');
   });
 
+  it('should support commands with hyphens', async () => {
+    const output = await npm()['find-dupes']();
+    match(output, /up to date/);
+  });
+
+  it('should alias commands with hyphens', async () => {
+    const output = await npm().findDupes();
+    match(output, /up to date in/);
+  });
+
   it('should support child process options', async () => {
     const options = { cwd: __dirname };
     const output = await npm({ options }).exec('-c', 'pwd');
