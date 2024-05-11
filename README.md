@@ -1,4 +1,4 @@
-# Oubliette - a programmatic api for npm
+# Oubliette - a programmatic interface for npm
 
 [![NPM version](https://img.shields.io/npm/v/oubliette.svg?style=flat-square)](https://www.npmjs.com/package/oubliette)
 [![Node.js CI](https://github.com/acuminous/oubliette/workflows/Node.js%20CI/badge.svg)](https://github.com/acuminous/oubliette/actions?query=workflow%3A%22Node.js+CI%22)
@@ -6,7 +6,7 @@
 [![Test Coverage](https://codeclimate.com/github/acuminous/oubliette/badges/coverage.svg)](https://codeclimate.com/github/acuminous/oubliette/coverage)
 [![Discover zUnit](https://img.shields.io/badge/Discover-zUnit-brightgreen)](https://www.npmjs.com/package/zunit)
 
-The programmatic API was removed from npm in v8.0.0. Since then the only option for using npm from NodeJs is by executing the npm binary. This module wraps the exec call within convenient asynchronous and synchronous APIs.
+The official API was removed from npm in v8.0.0. Since then the only option for using npm from NodeJs is by executing the npm binary. This module wraps the exec call within convenient asynchronous and synchronous APIs.
 
 ## Usage
 
