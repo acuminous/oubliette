@@ -9,13 +9,13 @@
 
 ## Usage
 
-Use the asynchronous API
+Asynchronous API
 ```js
 const { napiAsync: npm } = require('napi');
 await npm().install('express');
 ````
 
-User the synchronous API
+Synchronous API
 ```js
 const { napiSync: npm } = require('napi');
 npm().install('express');
