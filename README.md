@@ -19,8 +19,12 @@ Synchronous API
 ```js
 const { syncApi: npm } = require('oubliette');
 ```
+Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) without arguments
+```js
+npm().install();
+```
 
-Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with multiple arguments
+Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with arguments
 ```js
 npm().install('express', 'pg', 'debug');
 ```
