@@ -93,6 +93,5 @@ try {
 The error will be decorated with `stdout` and `stderr` properties.
 
 ## Why "Oubliette"?
-
 According to [Wikipedia](https://en.wikipedia.org/wiki/Dungeon), an oubliette is a basement room or bottle dungeon which is accessible only from a hole in a high ceiling and therefore difficult to escape from. If you've ever descended into the [npm souce code](https://github.com/npm/cli/blob/latest/lib/commands) you will appreciate the similarity!
 
