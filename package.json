@@ -31,5 +31,13 @@
   },
   "lint-staged": {
     "*.js": "eslint --fix"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acuminous/oubliette.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acuminous/oubliette/issues"
+  },
+  "homepage": "https://acuminous.github.io/oubliette"
 }
