@@ -6,7 +6,14 @@
   "keywords": [
     "npm",
     "programmatic",
-    "api"
+    "api",
+    "command",
+    "install",
+    "view",
+    "link",
+    "exec",
+    "audit",
+    "publish"
   ],
   "scripts": {
     "coverage": "nyc --report html --reporter lcov --reporter text-summary zUnit",
