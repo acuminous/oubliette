@@ -68,7 +68,7 @@ const buffer = npm({ format }).view('express', { json: true });
 
 Finally you can receive the raw output.
 ```js
-const { formats: { rawFormat: format } } = require('oubliette');
+const { syncApi: npm, formats: { rawFormat: format } } = require('oubliette');
 const output = npm({ format }).view('express', { json: true });
 ```
 
