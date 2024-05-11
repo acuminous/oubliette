@@ -22,21 +22,25 @@ describe('napi-sync', () => {
     eq(report.description, 'A programmatic api for npm');
   });
 
-  it('should support exec options', () => {
-    const output = napi({ cwd: __dirname }).exec('-c', 'pwd');
+  it('should support child process options', () => {
+    const options = { cwd: __dirname };
+    const output = napi({ options }).exec('-c', 'pwd');
     match(output, new RegExp('/napi/test$'));
   });
 
   it('should report commands that fail', () => {
-    throws(() => napi({ stdio: 'pipe' }).exec('-c', 'exit', '1'), (err) => {
-      match(err.message, /Command failed: npm exec -c exit 1/);
+    throws(() => napi().exec('-c', "'exit 1'", { silent: true }), (err) => {
+      match(err.message, /Command failed: npm exec -c 'exit 1'/);
       return true;
     });
   });
 
   it('should capture stderr', () => {
-    throws(() => napi({ stdio: 'pipe' }).view('asdfasdfasdflsdfweifwefsdf'), (err) => {
-      match(err.message, /Command failed: npm view asdfasdfasdflsdfweifwefsdf/);
+    const i = Math.floor(Math.random() * (1000000)) + 1000000;
+    const packageName = `does-not-exist-${i}`;
+    const options = { stdio: 'pipe' };
+    throws(() => napi({ options }).view(packageName), (err) => {
+      match(err.message, new RegExp(`Command failed: npm view ${packageName}`));
       match(err.stderr.toString(), /npm ERR! code E404/);
       return true;
     });

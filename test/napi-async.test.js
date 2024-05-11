@@ -22,21 +22,24 @@ describe('napi-async', () => {
     eq(report.description, 'A programmatic api for npm');
   });
 
-  it('should support exec options', async () => {
-    const output = await napi({ cwd: __dirname }).exec('-c', 'pwd');
+  it('should support child process options', async () => {
+    const options = { cwd: __dirname };
+    const output = await napi({ options }).exec('-c', 'pwd');
     match(output, new RegExp('/napi/test$'));
   });
 
   it('should report commands that fail', async () => {
-    await rejects(() => napi().exec('-c', 'exit', '1'), (err) => {
-      match(err.message, /Command failed: npm exec -c exit 1/);
+    await rejects(() => napi().exec('-c', "'exit 1'"), (err) => {
+      match(err.message, /Command failed: npm exec -c 'exit 1'/);
       return true;
     });
   });
 
   it('should capture stderr', async () => {
-    await rejects(() => napi().view('asdfasdfasdflsdfweifwefsdf'), (err) => {
-      match(err.message, /Command failed: npm view asdfasdfasdflsdfweifwefsdf/);
+    const i = Math.floor(Math.random() * (1000000)) + 1000000;
+    const packageName = `does-not-exist-${i}`;
+    await rejects(() => napi().view(packageName), (err) => {
+      match(err.message, new RegExp(`Command failed: npm view ${packageName}`));
       match(err.stderr.toString(), /npm ERR! code E404/);
       return true;
     });
