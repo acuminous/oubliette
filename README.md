@@ -7,7 +7,7 @@
 [![Discover zUnit](https://img.shields.io/badge/Discover-zUnit-brightgreen)](https://www.npmjs.com/package/zunit)
 
 
-## TL;DR
+## Usage
 
 Use the asynchronous API
 ```js
