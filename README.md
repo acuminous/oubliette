@@ -1,4 +1,4 @@
-# oubliette - a programmatic api for npm
+# Oubliette - a programmatic api for npm
 
 [![NPM version](https://img.shields.io/npm/v/oubliette.svg?style=flat-square)](https://www.npmjs.com/package/oubliette)
 [![Node.js CI](https://github.com/acuminous/oubliette/workflows/Node.js%20CI/badge.svg)](https://github.com/acuminous/oubliette/actions?query=workflow%3A%22Node.js+CI%22)
@@ -29,7 +29,7 @@ Execute a [command](https://raw.githubusercontent.com/acuminous/oubliette/main/l
 npm().install('express', 'pg', 'debug');
 ```
 
-Execute [command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
+Execute [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
 ```js
 npm().install('nodemon', { 'g': true });
 ```
@@ -47,7 +47,7 @@ npm().findDupes();
 ```
 
 ## Parsing Output
-oubliette uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html). oubliette converts this to a string by default;
+Oubliette uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html). Oubliette converts this to a string by default;
 
 ```js
 const output = npm().view('express');
@@ -92,7 +92,7 @@ try {
 ```
 The error will be decorated with `stdout` and `stderr` properties.
 
-## Why "oubliette"?
+## Why "Oubliette"?
 
 According to [Wikipedia](https://en.wikipedia.org/wiki/Dungeon), an oubliette is a basement room or bottle dungeon which is accessible only from a hole in a high ceiling and therefore difficult to escape from. If you've ever descended into the [npm souce code](https://github.com/npm/cli/blob/latest/lib/commands) you will appreciate the similarity!
 
