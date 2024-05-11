@@ -1,6 +1,6 @@
 {
   "name": "oubliette",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A programmatic api for npm",
   "main": "index.js",
   "keywords": [
