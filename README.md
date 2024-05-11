@@ -57,7 +57,7 @@ This is inconvenient if you want JSON output for commands that support the `--js
 
 ```js
 const { syncApi: npm, formats: { jsonFormat: format } } = require('oubliette');
-const version = npm({ format }).view('express', 'version', { json: true });
+const { version } = npm({ format }).view('express', { json: true });
 ```
 
 You can also receive the output as a Buffer.
