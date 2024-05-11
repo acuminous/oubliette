@@ -19,7 +19,7 @@ describe('Async API', () => {
     const output = await npm().ls({ omit: 'dev', json: true, long: undefined });
     const report = JSON.parse(output);
     eq(Object.keys(report).includes('dependencies'), false);
-    eq(report.description, 'A programmatic api for npm');
+    eq(report.description, 'A programmatic interface for npm');
   });
 
   it('should support commands with hyphens', async () => {
@@ -42,7 +42,7 @@ describe('Async API', () => {
     const format = formats.jsonFormat;
     const report = await npm({ format }).ls({ omit: 'dev', json: true, long: undefined });
     eq(Object.keys(report).includes('dependencies'), false);
-    eq(report.description, 'A programmatic api for npm');
+    eq(report.description, 'A programmatic interface for npm');
   });
 
   it('should format output as a buffer', async () => {
