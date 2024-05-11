@@ -29,7 +29,7 @@ Execute a [command](https://raw.githubusercontent.com/acuminous/oubliette/main/l
 npm().install('express', 'pg', 'debug');
 ```
 
-Execute [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
+Execute [command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
 ```js
 npm().install('nodemon', { 'g': true });
 ```
