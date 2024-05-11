@@ -37,7 +37,7 @@ Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/na
 npm().install('nodemon', { 'global': true, 'install-strategy': 'shallow' });
 ````
 
-### Parsing Output
+## Parsing Output
 napi uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html). napi converts this to a string by default;
 
 ```js
@@ -71,7 +71,7 @@ const options = { cwd: __dirname };
 await napi({ options }).exec('-c', 'pwd');
 ```
 
-### Error Handling
+## Error Handling
 Handle errors by wrapping the npm command in a try/catch
 
 ```js
