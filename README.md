@@ -47,33 +47,33 @@ npm().findDupes();
 ```
 
 ## Parsing Output
-Oubliette uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html). Oubliette converts this to a string by default;
+Oubliette uses NodeJS [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) under the hood. These sometimes return stdout as a [Buffer](https://nodejs.org/api/buffer.html) instead of as a String. Oubliette ensures string converstion by default.
 
 ```js
 const output = npm().view('express');
 ```
 
-This is inconvenient if you want JSON output for commands that support the `--json` long option, so instead you can specify a format function
+This is inconvenient if you want JSON output for commands that support the `--json` option, so you can specify a format function.
 
 ```js
-const { formats: { jsonFormat: format } } = require('oubliette');
-const json = npm({ format }).view('express', { json: true });
+const { syncApi: npm, formats: { jsonFormat: format } } = require('oubliette');
+const version = npm({ format }).view('express', 'version', { json: true });
 ```
 
-You can also receive the output as a buffer consistently
+You can also receive the output as a Buffer.
 ```js
-const { formats: { bufferFormat: format } } = require('oubliette');
+const { syncApi: npm, formats: { bufferFormat: format } } = require('oubliette');
 const buffer = npm({ format }).view('express', { json: true });
 ```
 
-Finally you can receive the raw output
+Finally you can receive the raw output.
 ```js
 const { formats: { rawFormat: format } } = require('oubliette');
 const output = npm({ format }).view('express', { json: true });
 ```
 
 ## Child Process Options
-You can specify any of the [child_process.exec](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.execAsync](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options.
+You can specify any of the [child_process.execSync](https://nodejs.org/api/child_process.html#child_processexecsynccommand-options ) and [child_process.exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) options...
 
 ```js
 const options = { cwd: __dirname };
@@ -81,7 +81,7 @@ await npm({ options }).exec('-c', 'pwd');
 ```
 
 ## Error Handling
-Handle errors by wrapping the npm command in a try/catch
+Handle errors by wrapping the npm command in a try/catch.
 
 ```js
 try {
