@@ -6,6 +6,7 @@
 [![Test Coverage](https://codeclimate.com/github/acuminous/napi/badges/coverage.svg)](https://codeclimate.com/github/acuminous/napi/coverage)
 [![Discover zUnit](https://img.shields.io/badge/Discover-zUnit-brightgreen)](https://www.npmjs.com/package/zunit)
 
+The programmatic API was removed from npm in v8.0.0. Since then the only option for using npm from NodeJs is by executing the npm binary. This module wraps the exec call within convenient asynchronous and synchronous APIs.
 
 ## Usage
 
