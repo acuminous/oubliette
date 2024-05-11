@@ -19,27 +19,27 @@ Synchronous API
 ```js
 const { syncApi: npm } = require('oubliette');
 ```
-Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) without arguments
+Execute a [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) without arguments
 ```js
 npm().install();
 ```
 
-Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with arguments
+Execute a [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with arguments
 ```js
 npm().install('express', 'pg', 'debug');
 ```
 
-Execute [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
+Execute [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with short options
 ```js
 npm().install('nodemon', { 'g': true });
 ```
 
-Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with long options
+Execute a [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with long options
 ```js
 npm().install('nodemon', { 'global': true, 'install-strategy': 'shallow' });
 ```
 
-Execute a [supported npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with hyphens
+Execute a [npm command](https://raw.githubusercontent.com/acuminous/oubliette/main/lib/commands.json) with hyphens
 ```js
 npm()['find-dupes']();
 // or
