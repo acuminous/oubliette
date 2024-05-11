@@ -1,9 +1,9 @@
-const napiAsync = require('./lib/napi-async');
-const napiSync = require('./lib/napi-sync');
+const asyncApi = require('./lib/oubliette-async');
+const syncApi = require('./lib/oubliette-sync');
 const formats = require('./lib/formats');
 
 module.exports = {
-  napiAsync,
-  napiSync,
+  asyncApi,
+  syncApi,
   formats,
 };

@@ -1,22 +1,22 @@
 const { match, throws, strictEqual: eq } = require('node:assert');
 const { describe, it } = require('zunit');
 
-const { napiSync: napi, formats } = require('..');
+const { syncApi: npm, formats } = require('..');
 
-describe('napi-sync', () => {
+describe('Sync API', () => {
   it('should execute a command without arguments', () => {
-    const output = napi().ls();
-    match(output, /napi@\d+\.\d+\.\d+/);
+    const output = npm().ls();
+    match(output, /oubliette@\d+\.\d+\.\d+/);
     match(output, /zunit@\d+\.\d+\.\d+/);
   });
 
   it('should execute a command with simple arguments', () => {
-    const output = napi().view('express', 'version');
+    const output = npm().view('express', 'version');
     match(output, /\d+\.\d+\.\d+/);
   });
 
   it('should execute a command with long options', () => {
-    const output = napi().ls({ omit: 'dev', json: true, long: undefined });
+    const output = npm().ls({ omit: 'dev', json: true, long: undefined });
     const report = JSON.parse(output);
     eq(Object.keys(report).includes('dependencies'), false);
     eq(report.description, 'A programmatic api for npm');
@@ -24,31 +24,31 @@ describe('napi-sync', () => {
 
   it('should support child process options', () => {
     const options = { cwd: __dirname };
-    const output = napi({ options }).exec('-c', 'pwd');
-    match(output, new RegExp('/napi/test$'));
+    const output = npm({ options }).exec('-c', 'pwd');
+    match(output, new RegExp('/oubliette/test$'));
   });
 
   it('should format output as json', async () => {
     const format = formats.jsonFormat;
-    const report = napi({ format }).ls({ omit: 'dev', json: true, long: undefined });
+    const report = npm({ format }).ls({ omit: 'dev', json: true, long: undefined });
     eq(Object.keys(report).includes('dependencies'), false);
     eq(report.description, 'A programmatic api for npm');
   });
 
   it('should format output as a buffer', async () => {
     const format = formats.bufferFormat;
-    const buffer = napi({ format }).ls({ omit: 'dev', json: true, long: undefined });
+    const buffer = npm({ format }).ls({ omit: 'dev', json: true, long: undefined });
     eq(Buffer.isBuffer(buffer), true);
   });
 
   it('should leave output unformatted', async () => {
     const format = formats.rawFormat;
-    const buffer = napi({ format }).ls();
+    const buffer = npm({ format }).ls();
     eq(Buffer.isBuffer(buffer), true);
   });
 
   it('should report commands that fail', () => {
-    throws(() => napi().exec('-c', "'exit 1'", { silent: true }), (err) => {
+    throws(() => npm().exec('-c', "'exit 1'", { silent: true }), (err) => {
       match(err.message, /Command failed: npm exec -c 'exit 1'/);
       return true;
     });
@@ -58,7 +58,7 @@ describe('napi-sync', () => {
     const i = Math.floor(Math.random() * (1000000)) + 1000000;
     const packageName = `does-not-exist-${i}`;
     const options = { stdio: 'pipe' };
-    throws(() => napi({ options }).view(packageName), (err) => {
+    throws(() => npm({ options }).view(packageName), (err) => {
       match(err.message, new RegExp(`Command failed: npm view ${packageName}`));
       match(err.stderr.toString(), /npm ERR! code E404/);
       return true;
