@@ -6,7 +6,7 @@ export const formats: FormatsType;
 
 type AsyncConfigType<F> = {
   format?: FormatType<F>;
-  options?: ExecAsyncOptions
+  options?: ExecAsyncOptions;
 };
 
 type SyncConfigType<F> = {
